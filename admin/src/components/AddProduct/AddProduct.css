@@ -1,0 +1,127 @@
+.add-product {
+    max-width: 90%;
+    width: 80%;
+    margin-top: 10px auto;
+    padding: 40px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.addproduct-itemfield {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.addproduct-itemfield input {
+    width: 70%;
+    height: 50px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.add-product-selector {
+    width: 35%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #bdc3c7;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.addproduct-itemfield input:focus,
+.add-product-selector:focus {
+    border-color: #3498db;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+}
+
+.addproduct-price {
+    display: flex;
+    gap: 65px;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+.addproduct-price .addproduct-itemfield {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.addproduct-price .addproduct-itemfield input {
+    width: 100%;
+}
+
+.addproduct-itemfield label {
+    cursor: pointer;
+}
+
+.addproduct-thumbnail-img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.addproduct-btn {
+    width: 75%;
+    height: 55px;
+    border-radius: 8px;
+    background: #6c8299;
+    border: 1px solid #4f657a;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.addproduct-btn:hover {
+    background: #5e7289;
+    border-color: #3f5368;
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 1024px) {
+    .add-product {
+        max-width: 90%;
+        padding: 25px;
+    }
+    .addproduct-price {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .add-product {
+        max-width: 95%;
+        padding: 20px;
+        margin-top: 20px; 
+    }
+}
+
+@media (max-width: 500px) {
+    .add-product {
+        max-width: 100%;
+        padding: 35px;
+    }
+    .addproduct-thumbnail-img {
+        width: 100px;
+        height: 100px;
+    }
+}

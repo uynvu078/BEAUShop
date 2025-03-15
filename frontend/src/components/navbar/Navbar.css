@@ -1,0 +1,232 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 11px 20px;
+    box-shadow: 0 1px 3px -2px #3D2B1F;
+    align-items: center;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.nav-logo p {
+    color: #1A1A1A;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+    background: linear-gradient(135deg, #3D2B1F 0%, #7A5C42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.nav-logo img {
+    transition: transform 0.3s ease;
+}
+.nav-logo:hover img {
+    transform: rotate(5deg);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 45px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-self: center;
+}
+.nav-menu li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    color: #1A1A1A;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+.nav-menu li a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.1s ease;
+}
+.nav-menu li:active,
+.nav-menu li a:active {
+    color: #C8A165 !important;
+}
+.nav-menu li:hover {
+    color: #7A5C42;
+}
+.nav-menu hr {
+    border: none;
+    width: 0%;
+    height: 1.5px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, transparent, #C8A165, transparent);    
+    transition: width 0.3s ease;
+    opacity: 0.8;
+}
+.nav-menu li:hover hr {
+    width: 80%;
+}
+
+.nav-login-cart {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    justify-self: end;
+}
+
+.nav-login-cart button {
+    width: 140px;
+    height: 48px;
+    outline: none;
+    border: none;
+    border-radius: 75px;
+    color: #1A1A1A;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #E0D8C8, #D4C8B0, #C2B6A0);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(26, 26, 26, 0.3);
+    letter-spacing: 0.5px;
+}
+.nav-login-cart button:hover {
+    background: linear-gradient(135deg, #ECE6DA, #D4C8B0, #B8A690);
+    box-shadow: 0 6px 15px rgba(180, 170, 160, 0.4);
+    transform: translateY(-2px);
+    color: #1A1A1A;
+}
+.nav-login-cart button:active {
+    background: linear-gradient(135deg, #ECE6DA, #D4C8B0, #B8A690);
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(180, 170, 160, 0.3);
+    color: #1A1A1A;
+}
+
+
+.nav-cart-count {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    margin-left: -45px;
+    border-radius: 9px;
+    font-size: 12px;
+    background: linear-gradient(135deg, #A89580, #C2B6A0, #E0D8C8);
+    color: #1A1A1A;
+    box-shadow: 0 2px 4px rgba(120, 100, 80, 0.3);
+    transition: all 0.3s ease;
+}
+
+.nav-dropdown {
+    display: none;
+}
+
+
+/*=========================================================================*/
+
+@media(max-width:1280px) {
+    .navbar{
+        padding: 12px 50px;
+    }
+    .nav-logo img {
+        width: 40px;
+    }
+    .nav-logo p {
+        font-size: 25px;
+    }
+    .nav-menu {
+        gap: 30px;
+        font-size: 16px;
+    }
+    .nav-login-cart {
+        gap: 30px;
+    }
+    .nav-login-cart button {
+        width: 120px;
+        height: 45px;
+        font-size: 16px;
+    }
+    .nav-cart-count {
+        margin-left: -40px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:1024px) {
+    .navbar {
+        padding: 12px 30px;
+    }
+    .nav-menu {
+        gap: 25px;
+        font-size: 14px;
+    }
+    .nav-login-cart button {
+        width: 80px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .nav-login-cart img {
+        width: 30px;
+    }
+    .nav-cart-count {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media(max-width:800px) {
+    .navbar {
+        padding: 10px 0px;
+    }
+    .nav-dropdown {
+        display: block;
+        width: 30px;
+        rotate: -90deg;
+        transition: 0.5s;
+    }
+    .nav-menu {
+        display: none;
+        height: 80px;
+        width: 100%;
+        position: absolute;
+        background-color: white;
+        justify-content: center;
+        top: 50px;
+    }
+    .nav-menu-visible {
+        display: flex;
+    }
+    .nav-dropdown.open {
+        transform: rotate(90deg);
+    }
+}
+
+@media(max-width:500px) {
+    .navbar {
+        width: 8px 0px;
+        gap: 0;
+    }
+    .nav-logo {
+        transform: scale(0.8);
+    }
+    .nav-menu {
+        height: 70px;
+        top: 50px;
+    }
+    .nav-login-cart {
+        transform: scale(0.8);
+    }
+}

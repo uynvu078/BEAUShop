@@ -1,0 +1,109 @@
+.list-product {
+    max-width: 90%;
+    margin-top: 10px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.listproduct-price-old {
+    text-decoration: line-through;
+    color: #7a7a7a;
+    font-size: 14px;
+}
+.listproduct-new-price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #2E7D32;
+}
+
+.listproduct-format-main {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+    background: #ecf0f1;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.listproduct-format {
+    display: grid;
+    align-items: center;
+}
+
+.listproduct-product-icon {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.listproduct-remove-icon {
+    width: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.listproduct-remove-icon:hover {
+    transform: scale(1.2);
+}
+
+
+@media (max-width: 800px) {
+    .list-product {
+        width: 95%;
+    }
+    .listproduct-format-main {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .listproduct-product-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 500px) {
+    .list-product {
+        width: 100%; 
+        padding: 18px;
+    }
+    .listproduct-format-main {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr; /* Ensure proper alignment */
+        font-size: 13px; /* Adjust for readability */
+        padding: 8px;
+        text-align: center;
+    }
+    .listproduct-product-icon {
+        width: 50px; 
+        height: 50px;
+    }
+    .listproduct-remove-icon {
+        width: 20px; 
+    }
+    .listproduct-format {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr;
+        gap: 5px;
+        align-items: center;
+    }
+    .listproduct-title {
+        font-size: 12px;
+        text-align: left;
+    }
+    .listproduct-price-old {
+        text-decoration: line-through;
+        color: #7a7a7a;
+    }
+    .listproduct-new-price {
+        font-weight: bold;
+        color: #2E7D32;
+    }
+    .listproduct-category {
+        display: none;
+    }
+}
+

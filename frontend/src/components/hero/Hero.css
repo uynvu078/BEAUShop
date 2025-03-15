@@ -1,0 +1,209 @@
+.hero {
+    height: 100vh;
+    background: linear-gradient(180deg, #EAE4D8 0%, #E0D8C8 30%, #D4C8B0 55%, #c2b6a0c0 80%, #fff 100%);
+    display: flex;
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding-left: 140px;
+    padding-right: 0px;
+    line-height: 1.1;
+}
+.hero-left h2 {
+    color: #7A5C42;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 1.2;
+}
+.hero-left p {
+    color: #1A1A1A;
+    font-size: 73px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #3D2B1F 0%, #7A5C42 50%, #C8A165 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.hero-hand-icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.hero-hand-icon img {
+    width: 85px;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+.hero-hand-icon:hover img {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.hero-latest-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 260px;
+    height: 60px;
+    border-radius: 75px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #C2B6A0, #A89580, #8F7760, #D4C8B0);
+    color: #1A1A1A;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 12px rgba(80, 80, 80, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.hero-latest-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(80, 80, 80, 0.4);
+    background: linear-gradient(135deg, #A89580, #8F7760, #C2B6A0, #D4C8B0);
+    color: #3D2B1F;
+}
+
+.hero-right {
+    flex: 1;
+    text-align: left;
+}
+.hero-right img {
+    width: 850px; 
+    height: auto;
+}
+
+/*=========================================================================*/
+
+@media(max-width:1280px) {
+    .hero {
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+    }
+    .hero-left {
+        flex: 1;
+        padding-left: 80px;
+        padding-right: 20px;
+    }
+    .hero-left h2 {
+        font-size: 22px;
+    }
+    .hero-left p {
+        font-size: 55px;
+    }
+    .hero-hand-icon img {
+        width: 75px;
+    }
+    .hero-latest-btn {
+        width: 240px;
+        height: 55px;
+        font-size: 18px;
+    }
+    .hero-right {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .hero-right img {
+        width: 500px;
+        height: auto;
+    }
+}
+@media(max-width:1024px) {
+    .hero {
+        padding: 0 5%;
+        display: flex;
+        align-items: center;
+    }
+    .hero-left {
+        flex: 1;
+        padding-left: 60px;
+        padding-right: 20px;
+    }
+    .hero-left h2 {
+        font-size: 20px;
+    }
+    .hero-left p {
+        font-size: 50px;
+    }
+    .hero-hand-icon img {
+        width: 65px;
+    }
+    .hero-latest-btn {
+        width: 220px;
+        height: 50px;
+        font-size: 16px;
+    }
+    .hero-right {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .hero-right img {
+        width: 420px;
+        height: auto;
+    }
+}
+
+@media(max-width:800px) {
+    .hero {
+        padding: 0 5%;
+    }
+    .hero-left {
+        padding-left: 80px;
+        padding-right: 20px;
+        flex: 1;
+        text-align: left;
+    }
+    .hero-left h2 {
+        font-size: 20px;
+    }
+    .hero-left p {
+        font-size: 50px;
+    }
+    .hero-hand-icon img {
+        width: 65px;
+    }
+    .hero-latest-btn {
+        width: 220px;
+        height: 50px;
+        font-size: 16px;
+    }
+    .hero-right {
+        display: none;
+    }
+}
+
+@media(max-width:500px) {
+    .hero {
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+    }
+    .hero-right {
+        display: none;
+    }
+    .hero-left h2 {
+        font-size: 18px;
+    }
+    .hero-left p {
+        font-size: 50px;
+    }
+    .hero-hand-icon img {
+        width: 55px;
+    }
+    .hero-latest-btn {
+        width: 200px;
+        height: 45px;
+        font-size: 14px;
+    }
+}

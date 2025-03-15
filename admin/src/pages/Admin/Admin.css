@@ -1,0 +1,23 @@
+/* .admin{
+    display: flex;
+}
+@media(max-width:800px){
+    .admin{
+        flex-direction: column;
+    }
+} */
+
+.admin {
+    display: flex;
+    gap: 20px;
+    background: #ecf0f1;
+    min-height: 100vh;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+@media (max-width: 800px) {
+    .admin {
+        flex-direction: column;
+    }
+}

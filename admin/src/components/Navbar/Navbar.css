@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #d0d5d9, #4a6275);
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+.nav-logo {
+    width: 180px;
+    filter: brightness(1.2);
+}
+
+.nav-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+.nav-profile:hover {
+    transform: scale(1.08);
+}
+
+
+@media (max-width: 800px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+    .nav-logo {
+        width: 140px;
+    }
+    .nav-profile {
+        width: 40px;
+        height: 40px;
+    }
+}
