@@ -10,15 +10,25 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors());
 
-//Database Connection with MongoDB
-mongoose.connect("mongodb+srv://uyenvu315:testingTheApp123@cluster0.cod1h.mongodb.net/ecommerse")
+require('dotenv').config();
 
-// API Creation
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    tls: true,
+    tlsAllowInvalidCertificates: true,
+    directConnection: true
+  }).then(() => {
+    console.log("✅ Connected to MongoDB successfully");
+  }).catch((err) => {
+    console.error("❌ MongoDB connection error:", err);
+  });
+  
+
 app.get("/", (req, res) => {
     res.send("Express App is Running")
 });
 
-// Image Storage Engine
 const storage = multer.diskStorage({
     destination: './upload/images',
     filename: (req, file, cb) => {
@@ -27,7 +37,6 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage })
 
-// Upload Endpoint for images
 app.use('/images', express.static('upload/images'))
 app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
@@ -71,21 +80,18 @@ app.post('/addproduct', async (req, res) => {
     res.json({ success: true, name: req.body.name })
 });
 
-// API for Deleting Product
 app.post("/removeproduct", async (req, res) => {
     await Product.findOneAndDelete({ id: req.body.id });
     console.log("Removed");
     res.json({ success: true, name: req.body.name })
 });
 
-// API for getting All Products
 app.get('/allproducts', async (req, res) => {
     let products = await Product.find({});
     console.log("All Products Fetched");
     res.send(products);
 });
 
-// Schema creating for User Model
 const Users = mongoose.model("Users", {
     name: { type: String },
     email: { type: String, unique: true },
@@ -95,7 +101,6 @@ const Users = mongoose.model("Users", {
 });
 
 /* ------------------------------------------------------------------ */
-// Creating Endpoint for Registering User
 app.post('/signup', async (req, res) => {
     let check = await Users.findOne({ email: req.body.email });
     if (check) {
@@ -120,7 +125,7 @@ app.post('/signup', async (req, res) => {
     res.json({ success, token });
 });
 
-// Creating Endpoint for User Login
+// User Login
 app.post('/login', async (req, res) => {
     let user = await Users.findOne({ email: req.body.email });
     if (user) {
@@ -141,14 +146,14 @@ app.post('/login', async (req, res) => {
 });
 
 /* ---------------------------------------------------------------------------------------------- */
-// Creating endpoint for New Collection data
+// New Collection data
 app.get("/newcollections", async (req, res) => {
     let products = await Product.find({});
     let newCollection = products.slice(1).slice(-8);
     console.log("New Collections Fetched");
     res.send(newCollection);
 });
-// Creating endpoint for Popular in Women data
+// Popular in Women data
 app.get("/popularinwomen", async (req, res) => {
     let products = await Product.find({ category: "women" });
     let popularWomen = products.splice(0, 4);
@@ -170,7 +175,7 @@ const fetchUser = async (req, res, next) => {
         }
     }
 };
-// Creating endpoint for Adding Product to Cart
+// Adding Product to Cart
 app.post('/addtocart', fetchUser, async (req, res) => {
     console.log("Added", req.body.itemId);
     let userData = await Users.findOne({ _id: req.user.id });
@@ -178,7 +183,7 @@ app.post('/addtocart', fetchUser, async (req, res) => {
     await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
     res.send("Added")
 });
-//Creating endpoint to Remove Product from Cart Data
+//Remove Product from Cart Data
 app.post('/removefromcart', fetchUser, async (req, res) => {
     console.log("Removed", req.body.itemId);
     let userData = await Users.findOne({ _id: req.user.id });
@@ -188,7 +193,7 @@ app.post('/removefromcart', fetchUser, async (req, res) => {
     await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
     res.send("Removed");
 })
-// Creating endpoint to Get Cart Data
+// Get Cart Data
 app.post('/getcart', fetchUser, async (req, res) => {
     console.log("Get Cart");
     let userData = await Users.findOne({ _id: req.user.id });
@@ -197,6 +202,7 @@ app.post('/getcart', fetchUser, async (req, res) => {
 
 /* ---------------------------------------------------------------------------------------------- */
 
+const PORT = process.env.PORT || 4000;
 app.listen(port,(error) => {
     if (!error) {
         console.log("Server Running on Port" + port);
