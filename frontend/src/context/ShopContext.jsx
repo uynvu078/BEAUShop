@@ -2,6 +2,8 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const ShopContext = createContext(null);
 
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:4000";
+
 const getDefaultCart = () => {
     let cart = {};
     for (let index = 0; index < 300 + 1; index++) {
@@ -19,11 +21,11 @@ const ShopContextProvider = (props) => {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:4000/allproducts`)
+        fetch(`${API_BASE_URL}/allproducts`)
             .then((res) => res.json()).then((data) => setAllProduct(data))
 
         if (localStorage.getItem("auth-token")) {
-            fetch(`http://localhost:4000/getcart`, {
+            fetch(`${API_BASE_URL}/getcart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -48,7 +50,7 @@ const ShopContextProvider = (props) => {
         });
 
         if (localStorage.getItem("auth-token")) {
-            fetch(`http://localhost:4000/addtocart`, {
+            fetch(`${API_BASE_URL}/addtocart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -74,7 +76,7 @@ const ShopContextProvider = (props) => {
         });
 
         if (localStorage.getItem("auth-token")) {
-            fetch(`http://localhost:4000/removefromcart`, {
+            fetch(`${API_BASE_URL}/removefromcart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
