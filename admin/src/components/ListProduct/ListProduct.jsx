@@ -5,19 +5,26 @@ import cross_icon from '../../assets/cross_icon.png'
 const ListProduct = () => {
 
     const [allproducts, setAllProducts] = useState([]);
+    const API_BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
     const fetchInfo = async () => {
-        await fetch('http://localhost:4000/allproducts')
-                    .then((res)=>res.json())
-                    .then((data)=>{setAllProducts(data)});
-    }
+        try {
+            const response = await fetch(`${API_BASE_URL}/allproducts`);
+            const data = await response.json();
+    
+            console.log("Admin Fetched Products:", data);
+            setAllProducts(data);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    };
 
     useEffect(() => {
         fetchInfo();
     },[])
 
     const remove_product = async (id) => {
-        await fetch('http://localhost:4000/removeproduct', {
+        await fetch(`${API_BASE_URL}/removeproduct`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

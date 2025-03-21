@@ -5,8 +5,9 @@ BEAUShop is a modern e-commerce web application where users can browse and purch
 ---
 
 ## 🚀 Live Demo
-🔗 **Frontend:** [GitHub Pages (To be added after deployment)](https://your-github-username.github.io/your-repo-name/)  
+🔗 **Frontend:** [GitHub LiveDemo](https://uynvu078.github.io/BEAUShop/)  
 🔗 **Backend:** [Render Deployment](https://beaushop.onrender.com)
+🔗 **Admin:** [Admin Page](https://beaushop.onrender.com)
 
 ---
 
