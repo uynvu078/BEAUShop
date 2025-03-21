@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      var redirectTo = window.location.pathname;
+
+      if (!redirectTo.startsWith("/BEAUShop")) {
+        redirectTo = "/BEAUShop" + redirectTo;
+      }
+
+      window.location.replace("/BEAUShop/index.html?redirect=" + redirectTo);
+    </script>
+  </head>
+  <body></body>
+</html>
