@@ -25,7 +25,7 @@ const LoginSignup = () => {
     console.log(dataObj);
     if (dataObj.success) {
       localStorage.setItem('auth-token',dataObj.token);
-      window.location.replace("/");
+      window.location.replace("/BEAUShop/");
     }
     else
     {
@@ -46,7 +46,7 @@ const LoginSignup = () => {
 
     if (dataObj.success) {
       localStorage.setItem('auth-token',dataObj.token);
-      window.location.replace("/");
+      window.location.replace("/BEAUShop/");
     } else {
       alert(dataObj.errors)
     }
