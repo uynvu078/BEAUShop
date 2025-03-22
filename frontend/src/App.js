@@ -7,6 +7,7 @@ import Product from './pages/Product.jsx';
 import Cart from './pages/Cart.jsx';
 import LoginSignup from './pages/LoginSignup.jsx';
 import Footer from './components/footer/Footer.jsx';
+import Success from './pages/Success';
 import men_banner from './components/assets/banner_mens.png'
 import women_banner from './components/assets/banner_women.png'
 import kids_banner from './components/assets/banner_kids.png'
@@ -25,6 +26,7 @@ function App() {
         </Route>
         <Route path='/cart' element={<Cart/>} />
         <Route path='/login' element={<LoginSignup/>} />
+        <Route path="/success" element={<Success />} />
       </Routes>
       <Footer />
     </div>

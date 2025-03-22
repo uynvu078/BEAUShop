@@ -1,0 +1,37 @@
+.success-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .success-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .success-container p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .success-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #C2B6A0, #A89580);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .success-btn:hover {
+    background: linear-gradient(135deg, #A89580, #C2B6A0);
+  }
+  
