@@ -47,32 +47,36 @@ const ListProduct = () => {
       </div>
       <div className="listproduct-allproducts">
         <hr />
-        {allproducts.map((product) => (
-          <div key={product.id}>
-            <div className="listproduct-format-main listproduct-format">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="listproduct-product-icon"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = 'https://via.placeholder.com/100?text=No+Image';
-                }}
-              />
-              <p>{product.name}</p>
-              <p className='listproduct-price-old'>${product.old_price}</p>
-              <p className='listproduct-new-price'>${product.new_price}</p>
-              <p className='listproduct-category'>{product.category}</p>
-              <img
-                onClick={() => remove_product(product.id)}
-                className='listproduct-remove-icon'
-                src={cross_icon}
-                alt="Remove"
-              />
+        {allproducts.map((product) => {
+          console.log(`Rendering product ID ${product.id}:`, product); // ✅ helpful for debugging
+
+          return (
+            <div key={product.id}>
+              <div className="listproduct-format-main listproduct-format">
+                <img
+                  src={product.image || 'https://placehold.co/100x100?text=No+Image&font=roboto'}
+                  alt={product.name}
+                  className="listproduct-product-icon"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://placehold.co/100x100?text=No+Image&font=roboto';
+                  }}
+                />
+                <p>{product.name}</p>
+                <p className='listproduct-price-old'>${product.old_price}</p>
+                <p className='listproduct-new-price'>${product.new_price}</p>
+                <p className='listproduct-category'>{product.category}</p>
+                <img
+                  onClick={() => remove_product(product.id)}
+                  className='listproduct-remove-icon'
+                  src={cross_icon}
+                  alt="Remove"
+                />
+              </div>
+              <hr />
             </div>
-            <hr />
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
