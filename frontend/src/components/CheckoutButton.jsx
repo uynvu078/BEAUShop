@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { ShopContext } from '../context/ShopContext';
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 const CheckoutButton = () => {
   const { all_product, cartItems } = useContext(ShopContext);
@@ -20,7 +20,7 @@ const CheckoutButton = () => {
         quantity: cartItems[product.id],
       }));
 
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/create-checkout-session`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/create-checkout-session`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ items: cartData }),
