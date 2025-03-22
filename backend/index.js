@@ -11,7 +11,7 @@ app.use(express.json());
 
 const allowedOrigins = [
     'https://uynvu078.github.io',
-    'http://localhost:5173'
+    'https://beauadminpanel.netlify.app'
 ];
 app.use(cors({
     origin: function (origin, callback) {
