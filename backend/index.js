@@ -192,7 +192,7 @@ app.post('/addtocart', fetchUser, async (req, res) => {
     let userData = await Users.findOne({ _id: req.user.id });
     userData.cartData[req.body.itemId] += 1;
     await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
-    res.send("Added")
+    res.json({ message: "Added" });
 });
 //Remove Product from Cart Data
 app.post('/removefromcart', fetchUser, async (req, res) => {
@@ -202,7 +202,7 @@ app.post('/removefromcart', fetchUser, async (req, res) => {
       userData.cartData[req.body.itemId] -= 1;
     }
     await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
-    res.send("Removed");
+    res.json({ message: "Removed" });
 })
 // Get Cart Data
 app.post('/getcart', fetchUser, async (req, res) => {
@@ -241,7 +241,7 @@ app.post('/create-checkout-session', async (req, res) => {
       cancel_url: 'https://uynvu078.github.io/BEAUShop/cancel',
     });
 
-    res.json({ url: session.url });
+    res.json({ id: session.id });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
