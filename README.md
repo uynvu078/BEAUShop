@@ -1,146 +1,179 @@
-# BEAUShop - E-Commerce Website
+# 🛍️ BEAUShop – Modern E-Commerce Web App
 
-BEAUShop is a modern e-commerce web application where users can browse and purchase fashion items. This project includes a **React frontend** and a **Node.js/Express backend** with **MongoDB Atlas** as the database.
-
----
-
-## 🚀 Live Demo
-🔗 **Frontend:** [GitHub LiveDemo](https://uynvu078.github.io/BEAUShop/)  
-🔗 **Backend:** [Render Deployment](https://beaushop.onrender.com)
-🔗 **Admin:** [Admin Page](https://beaushop.onrender.com)
+**BEAUShop** is a stylish and fully responsive e-commerce application built with **React**, **Node.js**, **Express**, and **MongoDB**. Users can browse and purchase fashion products, while admins can manage inventory through a dedicated admin panel.
 
 ---
 
-## 📂 Project Structure
-```
-BEAUShop/
-│── frontend/          # React Frontend
-│   ├── src/
-│   ├── public/
-│   ├── .env
-│   ├── package.json
-│   ├── README.md
-│
-│── backend/           # Node.js Backend
-│   ├── index.js
-│   ├── routes/
-│   ├── models/
-│   ├── controllers/
-│   ├── .env
-│   ├── package.json
-│
-│── admin/             # Admin Panel
-│   ├── src/
-│   ├── public/
-│   ├── .env
-│   ├── package.json
-│   ├── README.md
-│
-│── README.md          
-```
+## 🌐 Live Demo
+
+| Platform     | Link                                                                 |
+|--------------|----------------------------------------------------------------------|
+| 🛍️ Frontend  | [BEAUShop Storefront (GitHub Pages)](https://uynvu078.github.io/BEAUShop/) |
+| 🔧 Backend   | [Express API (Render)](https://beaushop.onrender.com)               |
+| 🛠️ Admin Panel | [Admin Dashboard (Netlify)](https://beauadminpanel.netlify.app)       |
 
 ---
 
-## 🛠️ Installation & Setup
+## ⚙️ Installation & Local Setup
 
-### **1️⃣ Clone the Repository**
-```sh
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/uynvu078/BEAUShop.git
 cd BEAUShop
 ```
 
-### **2️⃣ Backend Setup**
-```sh
+---
+
+### 2. Backend Setup (`/backend`)
+
+```bash
 cd backend
 npm install
 ```
-#### **Set up `.env` file in `/backend` with:**
+
+Create a `.env` file in `/backend`:
+
 ```env
 PORT=4000
-MONGO_URI=mongodb+srv://<your-mongodb-connection>
+MONGO_URI=mongodb+srv://<your-mongodb-uri>
 BACKEND_URL=https://beaushop.onrender.com
+STRIPE_SECRET_KEY=your_stripe_secret_key
 ```
-#### **Run the Backend:**
-```sh
+
+Start the backend:
+
+```bash
 npm start
 ```
 
-### **3️⃣ Frontend Setup**
-```sh
+---
+
+### 3. Frontend Setup (`/frontend`)
+
+```bash
 cd frontend
 npm install
 ```
-#### **Set up `.env` file in `/frontend` with:**
+
+Create a `.env` file in `/frontend`:
+
 ```env
 REACT_APP_BACKEND_URL=https://beaushop.onrender.com
+REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_public_key
 ```
-#### **Run the Frontend:**
-```sh
+
+Run the frontend:
+
+```bash
 npm start
 ```
 
-### **4️⃣ Admin Panel (Upload Products)**
-To upload products using the admin panel, navigate to the admin folder and run:
-```sh
+---
+
+### 4. Admin Panel Setup (`/admin`)
+
+```bash
 cd admin
 npm install
+```
+
+Create a `.env` file in `/admin`:
+
+```env
+VITE_BACKEND_URL=https://beaushop.onrender.com
+VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_public_key
+```
+
+Run the admin panel:
+
+```bash
 npm run dev
 ```
 
 ---
 
-## 🚀 Deployment
+## 🚀 Deployment Guide
 
-### **Backend Deployment (Render)**
-1. Push your backend code to GitHub.
-2. Go to [Render](https://render.com/), create a new **Web Service**, and connect your repo.
-3. Set up the environment variables (from `.env` file).
-4. Deploy!
+### Backend (Render)
 
-### **Frontend Deployment (GitHub Pages)**
-1. Add this to `package.json` in `/frontend`:
-   ```json
-   "homepage": "https://your-github-username.github.io/your-repo-name"
+1. Push `/backend` folder to GitHub.
+2. Go to [Render](https://render.com/), create a new **Web Service**.
+3. Connect your GitHub repo and set environment variables.
+4. Deploy.
+
+---
+
+### Frontend (GitHub Pages)
+
+1. In `/frontend/package.json`, add:
+
+```json
+"homepage": "https://uynvu078.github.io/BEAUShop"
+```
+
+2. Install deployment package:
+
+```bash
+npm install gh-pages --save-dev
+```
+
+3. Add scripts to `package.json`:
+
+```json
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+```
+
+4. Deploy:
+
+```bash
+npm run deploy
+```
+
+---
+
+### Admin Panel (Netlify)
+
+1. Push your full project (including `/admin`) to GitHub.
+2. Go to [Netlify](https://netlify.com), create a new site.
+3. Set:
+   - **Base directory:** `admin`
+   - **Build command:** `npm run build`
+   - **Publish directory:** `dist` (for Vite)
+4. Add environment variable:
    ```
-2. Install `gh-pages`:
-   ```sh
-   npm install gh-pages --save-dev
+   VITE_BACKEND_URL = https://beaushop.onrender.com
    ```
-3. Add these scripts to `package.json`:
-   ```json
-   "predeploy": "npm run build",
-   "deploy": "gh-pages -d build"
-   ```
-4. Deploy to GitHub Pages:
-   ```sh
-   npm run deploy
-   ```
+5. Deploy 🎉
 
 ---
 
 ## ✨ Features
-- 🔥 User Authentication (Login/Signup)
-- 🛒 Shopping Cart & Checkout
-- 📦 Product Management (Admin Panel)
-- 🌐 Fully Responsive UI
-- 🚀 Backend API with MongoDB
+
+- User Authentication (Signup/Login)
+- Add to Cart, View Cart, Checkout
+- Stripe Payment Integration (Test Mode)
+- Admin Dashboard to Add/Remove Products
+- RESTful APIs with MongoDB
+- Fully Responsive UI (Mobile-Friendly)
 
 ---
 
-## 👨‍💻 Technologies Used
-- **Frontend:** React, React Router, CSS
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB Atlas
-- **Deployment:** Render (Backend), GitHub Pages (Frontend)
+## 🧰 Tech Stack
+
+| Frontend | Backend | Database | Deployment |
+|----------|---------|----------|------------|
+| React, Vite, CSS | Node.js, Express | MongoDB Atlas | GitHub Pages, Render, Netlify |
 
 ---
 
-## 📩 Contact
-Have any questions? Feel free to reach out!
-📧 **Email:** uyenvu315@gmail.com  
-🔗 **GitHub:** [uynvu078](https://github.com/uynvu078)
+## 📬 Contact
+
+**Email:** [uyenvu315@gmail.com](mailto:uyenvu315@gmail.com)  
+**GitHub:** [@uynvu078](https://github.com/uynvu078)
 
 ---
 
-💡 **Enjoy using BEAUShop! Happy Coding! 🚀**
-
+> _"BEAUShop is built with elegance, logic, and love. 🛍️"_  
+> — _Sofia Vu_
