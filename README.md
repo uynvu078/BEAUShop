@@ -8,9 +8,9 @@
 
 | Platform     | Link                                                                 |
 |--------------|----------------------------------------------------------------------|
-| 🛍️ Frontend  | [BEAUShop Storefront (GitHub Pages)](https://uynvu078.github.io/BEAUShop/) |
-| 🔧 Backend   | [Express API (Render)](https://beaushop.onrender.com)               |
-| 🛠️ Admin Panel | [Admin Dashboard (Netlify)](https://beauadminpanel.netlify.app)       |
+| 🛍️ Frontend (GitHub Pages)  | [BEAUShop Storefront](https://uynvu078.github.io/BEAUShop/) |
+| 🔧 Backend (Render)   | [Express API](https://beaushop.onrender.com)               |
+| 🛠️ Admin Panel (Netlify) | [Admin Dashboard](https://beauadminpanel.netlify.app)       |
 
 ---
 
@@ -175,5 +175,10 @@ npm run deploy
 
 ---
 
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
 > _"BEAUShop is built with elegance, logic, and love. 🛍️"_  
-> — _Sofia Vu_
